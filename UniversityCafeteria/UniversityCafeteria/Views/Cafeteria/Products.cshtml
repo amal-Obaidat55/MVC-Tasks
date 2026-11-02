@@ -1,6 +1,62 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+
 @{
+    string[] products = { "Water", "Orange Juice", "Coffee", "Sandwich", "Chocolate","Milk" };
 }
-<h1>Product Page</h1>
+@section Styles{
+
+    <link href="~/css/Products.css" rel="stylesheet"/>
+}
+<h1>Our Products</h1>
+<br />
+<ul class="ul">
+    @foreach(var product in products)
+    {
+        <li>@product
+            @switch (product)
+            {
+                case "Water":
+                    <span>- Drinks</span>
+                    break;
+
+                case "Orange Juice":
+                    <span>- Drinks</span>
+                    break;
+
+                case "Coffee":
+                    <span>- Drinks</span>
+                    break;
+
+                case "Sandwich":
+                    <span>- Food</span>
+                    break;
+
+                case "Chocolate":
+                    <span>- Sweets</span>
+                    break;
+
+                case "Milk":
+                    <span>- Dairy</span>
+                    break;
+            }
+        </li>
+    }
+</ul>
+
+@if(products.Length == 0)
+{
+    <p>We need more Products</p>
+}
+else if(products.Length >= 3)
+{
+    <p>We have enough Products</p>
+
+}
+
+@section Scripts{
+    <script>
+        console.log("Welcome to the Products Page!")
+    </script>
+}

@@ -2,5 +2,69 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    Layout = null;
 }
-<h1>Supply Status Page</h1>
+@{
+    var tableContent = new[]
+                    {
+        new{product = "Water" , supplier = "Fresh Food Company" ,quantity=100,status="Available" },
+        new{product = "Orange Juice" , supplier = "Happy Drinks Company" ,quantity=20,status="Low Stock" },
+        new{product = "Coffee" , supplier = "Daily Supplies Company" ,quantity=50,status="Available" },
+        new{product = "Sandwich" , supplier = "Fresh Food Company" ,quantity=0,status="Out of Stock" },
+        new{product = "Chocolate" , supplier = "Daily Supplies Company" ,quantity=30,status="Available" }
+    };
+    int count = 1;
+
+}
+<!Doctype html>
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+<h1>Supply Status Dashboard</h1>
+<p>Track product quantities and availability.</p>    <br />
+    <br />
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Number</th>
+                <th scope="col">Product</th>
+                <th scope="col">Supplier</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var tableColumn in tableContent)
+            {
+                    string className = "";
+                    @if (tableColumn.status == "Available")
+                    {
+                        className = "table-success";
+                    }
+                    else if(tableColumn.status == "Low Stock")
+                    {
+                        className = "table-warning";
+                    }
+                    else
+                    {
+                        className = "table-danger";
+                    }
+
+                <tr class="@className">
+                    <td>@count</td>
+                    <td>@tableColumn.product</td>
+                    <td>@tableColumn.supplier</td>
+                    <td>@tableColumn.quantity</td>
+                    <td>@tableColumn.status</td>
+                    </tr>
+                count++;
+            }
+
+        </tbody>
+    </table>
+</body>
+</html>
