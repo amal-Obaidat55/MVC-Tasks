@@ -42,6 +42,8 @@ namespace UniversityCafeteria.Controllers
             string quantity = Request.Form["Quantity"];
             string Date = Request.Form["Date"];
 
+
+            
             TempData["message"] = "";
             if(EName == "")
             {
@@ -50,6 +52,7 @@ namespace UniversityCafeteria.Controllers
             else
             {
                 TempData["message"] = "Submit Successfuly";
+                TempData["EName"] = EName;
                 return RedirectToAction("About");
             }
             return View();
