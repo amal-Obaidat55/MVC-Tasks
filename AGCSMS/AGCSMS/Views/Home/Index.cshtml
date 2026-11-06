@@ -1,0 +1,106 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<h1>Graduation Certificates</h1>
+<table class="table">
+    <thead class="table-dark">
+        <th>Supplier</th>
+        <th>Offer Name</th>
+        <th>Quantity</th>
+        <th>Unit Price</th>
+    </thead>
+    <tbody>
+
+        @foreach (var item in ViewBag.Certificates)
+        {
+            <tr>
+                <td>@item.SupplierName</td>
+                <td>@item.OfferName</td>
+                <td>@item.Quantity</td>
+                <td>@item.UnitPrice</td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+<br />
+<br />
+<br />
+<h1>Hospitality</h1>
+<table class="table">
+    <thead class="table-dark">
+        <th>Supplier</th>
+        <th>Offer Name</th>
+        <th>Quantity</th>
+        <th>Unit Price</th>
+    </thead>
+    <tbody>
+
+        @foreach (var item in ViewBag.Hospitalities)
+        {
+            <tr>
+                <td>@item.SupplierName</td>
+                <td>@item.OfferName</td>
+                <td>@item.Quantity</td>
+                <td>@item.UnitPrice</td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+<br />
+<br />
+<br />
+
+<h1>Graduation Gifts</h1>
+<table class="table">
+    <thead class="table-dark">
+        <th>Supplier</th>
+        <th>Offer Name</th>
+        <th>Quantity</th>
+        <th>Unit Price</th>
+    </thead>
+    <tbody>
+
+        @foreach (var item in ViewBag.Gifts)
+        {
+            <tr>
+                <td>@item.SupplierName</td>
+                <td>@item.OfferName</td>
+                <td>@item.Quantity</td>
+                <td>@item.UnitPrice</td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+<form action=@Url.Action("ChooseOrder", "Home") method="post">
+    <label>Choose one Supplier for Certificate</label><br />
+    <select name="certificateSupplier">
+        <option value="..">Select</option>
+        <option value="suppA">Supplier A - Premium Certificate Package</option>
+        <option value="suppB">Supplier B - Standard Certificate Package</option>
+        <option value="suppC">Supplier C - Luxury Certificate Package</option>
+    </select>
+    <br>
+    <br />
+    <label>Choose one Supplier for Hospitality</label><br />
+    <select name="hospitalitySupplier">
+        <option value="..">Select</option>
+        <option value="suppD">Supplier D - Coffee & Drinks Package</option>
+        <option value="suppE">Supplier E - Sandwiches & Snacks Package</option>
+        <option value="suppF">Supplier F - Full Hospitality Package</option>
+    </select>
+    <br>
+    <br />
+    <label>Choose one Supplier for Gifts</label><br />
+    <select name="giftSupplier">
+        <option value="..">Select</option>
+        <option value="suppG">Supplier G - Customized Mugs Package</option>
+        <option value="suppH">Supplier H - Graduation Bags Package</option>
+        <option value="suppI">Supplier I - Premium Gift Boxes Package</option>
+    </select>
+    <br>
+    <br />
+    <button type="submit">Confirm</button>
+</form>

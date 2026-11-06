@@ -1,0 +1,73 @@
+﻿@using Newtonsoft.Json
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Review Page";
+}
+<h1>Your Final Request</h1>
+
+@{
+    var certi = Context.Session.GetString("certificate");
+    var data = JsonConvert.DeserializeObject<List<GraduationCertificate>>(certi);
+
+    var hosp = Context.Session.GetString("hospitality");
+    var data2 = JsonConvert.DeserializeObject<List<Hospitality>>(hosp);
+
+    var gift = Context.Session.GetString("gift");
+    var data3 = JsonConvert.DeserializeObject<List<GraduationGift>>(gift);
+
+    double discount = Convert.ToDouble(Context.Session.GetString("Discount"));
+    double total = Convert.ToDouble(Context.Session.GetString("FinalPrice"));
+    double CTotal = Convert.ToDouble(Context.Session.GetString("TotalCPrice"));
+    double HTotal = Convert.ToDouble(Context.Session.GetString("TotalHPrice"));
+    double GTotal = Convert.ToDouble(Context.Session.GetString("TotalGPrice"));
+}
+<div class="card-body">
+    <table class="table">
+        <thead class="table-dark">
+            <th>Supplier</th>
+            <th>Offer Name</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+        </thead>
+        <tbody>
+            @foreach(var item in data)
+            {
+                <tr>
+                    <td>@item.SupplierName</td>
+                    <td>@item.OfferName</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.UnitPrice</td>
+                </tr>
+            }
+            
+            @foreach (var item in data2)
+            {
+                <tr>
+                    <td>@item.SupplierName</td>
+                    <td>@item.OfferName</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.UnitPrice</td>
+                </tr>
+            }
+
+            @foreach (var item in data3)
+            {
+                <tr>
+                    <td>@item.SupplierName</td>
+                    <td>@item.OfferName</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.UnitPrice</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br />
+    <br />
+    <p>Certificates : @CTotal </p>
+    <p>Hospitalities : @HTotal </p>
+    <p>Gifts : @GTotal</p>
+    <p>Discount : @discount</p>
+    <h5 style="color: green">Total Price : @total</h5>
+</div>
