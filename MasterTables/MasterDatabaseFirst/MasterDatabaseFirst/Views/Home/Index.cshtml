@@ -1,0 +1,71 @@
+﻿@model DisplayTables
+<h1>Users</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">UserId</th>
+            <th scope="col">Email</th>
+            <th scope="col">PasswordHash</th>
+            <th scope="col">FirstName</th>
+            <th scope="col">LastName</th>
+            <th scope="col">Role</th>
+            <th scope="col">Phone</th>
+            <th scope="col">AvatarUrl</th>
+            <th scope="col">IsActive</th>
+            <th scope="col">CreatedAt</th>
+            <th scope="col">UpdatedAt</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var users in Model.users)
+        {
+            <tr>
+                <td>@users.UserId</td>
+                <td>@users.Email</td>
+                <td>@users.PasswordHash</td>
+                <td>@users.FirstName</td>
+                <td>@users.LastName</td>
+                <td>@users.Role</td>
+                <td>@users.Phone</td>
+                <td>@users.AvatarUrl</td>
+                <td>@users.IsActive</td>
+                <td>@users.CreatedAt</td>
+                <td>@users.UpdatedAt</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<h1>JobSeekerProfile</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">UserId</th>
+            <th scope="col">Email</th>
+            <th scope="col">PasswordHash</th>
+            <th scope="col">FirstName</th>
+            <th scope="col">LastName</th>
+            <th scope="col">Role</th>
+            <th scope="col">Phone</th>
+            <th scope="col">AvatarUrl</th>
+            <th scope="col">IsActive</th>
+            <th scope="col">CreatedAt</th>
+            <th scope="col">UpdatedAt</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var jobSeeker in Model.seekers)
+        {
+            <tr>
+                <td>@jobSeeker.UserId</td>
+                <td>@jobSeeker.Headline</td>
+                <td>@jobSeeker.DesiredRole</td>
+                <td>@jobSeeker.Location</td>
+                <td>@jobSeeker.YearsExperience</td>
+                <td>@jobSeeker.LinkedInUrl</td>
+                <td>@jobSeeker.PortfolioUrl</td>
+                <td>@jobSeeker.Summary</td>
+            </tr>
+        }
+    </tbody>
+</table>
