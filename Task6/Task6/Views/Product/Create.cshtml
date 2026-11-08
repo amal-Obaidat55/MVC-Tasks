@@ -1,0 +1,17 @@
+﻿@model Product
+
+<form method="post" asp-action="Create">
+    @Html.LabelFor(m => m.Name)<br />
+    @Html.TextBoxFor(m => m.Name)
+    <br />
+    <br />
+    @Html.LabelFor(m => m.Price)<br />
+    @Html.TextBoxFor(m => m.Price)
+    <br />
+    <br />
+    @Html.LabelFor(m => m.Quantity)<br />
+    @Html.TextBoxFor(m => m.Quantity)
+    <br />
+    <br />
+    <button type="submit">Add Category</button>
+</form>

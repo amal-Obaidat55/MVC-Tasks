@@ -1,0 +1,13 @@
+﻿@model Category
+
+<form method="post" asp-action="Create">
+    @Html.LabelFor(m => m.Name)<br />
+    @Html.TextBoxFor(m => m.Name)
+    <br />
+    <br />
+    @Html.LabelFor(m => m.Description)<br />
+    @Html.TextBoxFor(m => m.Description)
+    <br />
+    <br />
+    <button type="submit">Add Category</button>
+</form>

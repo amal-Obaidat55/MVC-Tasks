@@ -1,0 +1,17 @@
+﻿@model Supplier
+
+<form method="post" asp-action="Create">
+    @Html.LabelFor(m => m.Name)<br />
+    @Html.TextBoxFor(m => m.Name)
+    <br />
+    <br />
+    @Html.LabelFor(m => m.Phone)<br />
+    @Html.TextBoxFor(m => m.Phone)
+    <br />
+    <br />
+    @Html.LabelFor(m => m.Email)<br />
+    @Html.TextBoxFor(m => m.Email)
+    <br />
+    <br />
+    <button type="submit">Add Category</button>
+</form>
