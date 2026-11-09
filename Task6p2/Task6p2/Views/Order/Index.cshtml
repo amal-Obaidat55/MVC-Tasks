@@ -1,0 +1,46 @@
+﻿@model List<Order1>
+<a href=@Url.Action("Create","Order") class="btn btn-dark" >Add New Order</a>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Customer Name</th>
+            <th scope="col">Order Date</th>
+            <th scope="col">Total Price</th>
+            <th scope="col">Status</th>
+            <th scope="col">Employee Id</th>
+            <th scope="col">Actions</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.Id</td>
+                <td>@order.CustomerName</td>
+                <td>@order.OrderDate</td>
+                <td>@order.TotalPrice</td>
+                <td>@order.Ostatus</td>
+                <td>@order.EmployeeId</td>
+                
+                <td>
+                    <div class="d-flex gap-2">
+
+                        <a asp-controller="Order" asp-action="Edit" asp-route-id="@order.Id" class="btn btn-dark">Edit</a>
+                        <a asp-controller="Order" asp-action="Details" asp-route-id="@order.Id" class="btn btn-dark">Details</a>
+                        <form metod="post" action=@Url.Action("Delete", "Order", new { id = order.Id })>
+                            <button type="submit" class="btn btn-dark" style="display:inline-block;"
+                                    onclick="return confirm('Are you sure you want to delete this user?')">
+                                Delete
+                            </button>
+                        </form>
+                    </div>
+                </td>
+                
+            </tr>
+
+        }
+    </tbody>
+</table>

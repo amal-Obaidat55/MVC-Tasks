@@ -1,0 +1,56 @@
+﻿
+@model Product
+
+<form method="post" asp-action="Create">
+
+    @Html.LabelFor(m => m.Name)
+    <br />
+    @Html.TextBoxFor(m => m.Name)
+
+    <br /><br />
+
+    @Html.LabelFor(m => m.Price)
+    <br />
+    @Html.TextBoxFor(m => m.Price)
+
+    <br /><br />
+
+    @Html.LabelFor(m => m.Description)
+    <br />
+    @Html.TextBoxFor(m => m.Description)
+
+    <br /><br />
+
+    @Html.LabelFor(m => m.Quantity)
+    <br />
+    @Html.TextBoxFor(m => m.Quantity)
+
+    <br /><br />
+
+    <label>Supplier</label>
+    <select name="SupplierId">
+        @foreach (var supplier in ViewBag.Supplier)
+        {
+            <option value="@supplier.Id">
+                @supplier.Name
+            </option>
+        }
+    </select>
+
+    <br /><br />
+
+    <label>Category</label>
+    <select name="CategoryId">
+        @foreach (var category in ViewBag.Category)
+        {
+            <option value="@category.Id">
+                @category.Name
+            </option>
+        }
+    </select>
+
+    <br /><br />
+
+    <button type="submit">Add Product</button>
+
+</form>

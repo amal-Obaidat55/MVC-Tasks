@@ -1,0 +1,25 @@
+﻿@model Order1
+
+<form method="post" action=@Url.Action("Edit","Order") >
+    <label>Customer Name</label><br />
+    <input type="text" name="CustomerName" value="@Model.CustomerName"/>
+    <br />
+    <br />
+    <label>Order Date</label><br />
+    <input type="text" name="OrderDate" value="@Model.OrderDate" />
+    <br />
+    <br />
+    <label>Total Price</label><br />
+    <input type="text" name="TotalPrice" value="@Model.TotalPrice" />
+    <br />
+    <br />
+    <label>Order Status</label><br />
+    <input type="text" name="Ostatus" value="@Model.Ostatus" />
+    <br />
+    <br />
+    <label>Employee ID</label><br />
+    <input type="text" name="EmployeeId" value="@Model.EmployeeId" />
+    <br />
+    <br />
+    <button type="submit">Edit </button>
+</form>

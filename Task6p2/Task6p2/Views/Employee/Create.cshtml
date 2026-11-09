@@ -1,0 +1,29 @@
+﻿@model Employee
+
+<form method="post" asp-action="Create">
+    @Html.LabelFor(m => m.FullName)<br />
+    @Html.TextBoxFor(m => m.FullName)
+    <br />
+    <br />
+    @Html.LabelFor(m => m.Phone)<br />
+    @Html.TextBoxFor(m => m.Phone)
+    <br />
+    <br />
+    @Html.LabelFor(m => m.Email)<br />
+    @Html.TextBoxFor(m => m.Email)
+    <br />
+    <br />
+    @Html.LabelFor(m => m.Position)<br />
+    @Html.TextBoxFor(m => m.Position)
+    <br />
+    <br />
+    @Html.LabelFor(m => m.Salary)<br />
+    @Html.TextBoxFor(m => m.Salary)
+    <br />
+    <br />
+    @Html.LabelFor(m => m.HireDate)<br />
+    @Html.TextBoxFor(m => m.HireDate)
+    <br />
+    <br />
+    <button type="submit">Add Employee</button>
+</form>

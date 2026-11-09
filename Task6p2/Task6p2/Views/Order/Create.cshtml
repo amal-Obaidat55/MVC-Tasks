@@ -1,0 +1,32 @@
+﻿@model Order1
+
+<form method="post" asp-action="Create">
+    @Html.LabelFor(m => m.CustomerName)<br />
+    @Html.TextBoxFor(m => m.CustomerName)
+    <br />
+    <br />
+    @Html.LabelFor(m => m.OrderDate)<br />
+    @Html.TextBoxFor(m => m.OrderDate)
+    <br />
+    <br />
+    @Html.LabelFor(m => m.TotalPrice)<br />
+    @Html.TextBoxFor(m => m.TotalPrice)
+    <br />
+    <br />
+    @Html.LabelFor(m => m.Ostatus)<br />
+    @Html.TextBoxFor(m => m.Ostatus)
+    <br />
+    <br />
+    <label>Employee</label>
+    <select name="EmployeeId">
+        @foreach (var employee in ViewBag.Employees)
+        {
+            <option value="@employee.Id">
+                @employee.FullName
+            </option>
+        }
+    </select>
+    <br />
+    <br />
+    <button type="submit">Add Category</button>
+</form>

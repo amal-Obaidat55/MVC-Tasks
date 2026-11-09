@@ -1,0 +1,29 @@
+﻿@model Employee
+
+<form method="post" action=@Url.Action("Edit","Employee") >
+    <label>Name</label><br />
+    <input type="text" name="FullName" value="@Model.FullName"/>
+    <br />
+    <br />
+    <label>Phone</label><br />
+    <input type="text" name="Phone" value="@Model.Phone" />
+    <br />
+    <br />
+    <label>Email</label><br />
+    <input type="text" name="Email" value="@Model.Email" />
+    <br />
+    <br />
+    <label>Position</label><br />
+    <input type="text" name="Position" value="@Model.Position" />
+    <br />
+    <br />
+    <label>Salary</label><br />
+    <input type="text" name="Salary" value="@Model.Salary" />
+    <br />
+    <br />
+    <label>HireDate</label><br />
+    <input type="text" name="HireDate" value="@Model.HireDate" />
+    <br />
+    <br />
+    <button type="submit">Edit </button>
+</form>
