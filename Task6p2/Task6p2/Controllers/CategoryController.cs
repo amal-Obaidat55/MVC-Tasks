@@ -47,6 +47,12 @@ namespace Task6p2.Controllers
         {
             var delete = _context.Categories.Find(id);
 
+            var products = _context.Products.Where(x=> x.CategoryId == id).ToList();
+            foreach (var product in products)
+            {
+                _context.Products.Remove(product);
+                _context.SaveChanges();
+            }
             _context.Categories.Remove(delete);
             _context.SaveChanges();
 
